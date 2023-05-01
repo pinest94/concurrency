@@ -5,7 +5,10 @@ public class Counting {
         class Counter {
             private int count = 0;
 
-            public void increment() { count++; }
+            /***
+             * synchronized를 추가하지 않으면 원하는 값이 나오지 않는다.
+             */
+            public synchronized void increment() { count++; }
 
             public int getCount() { return count; }
         }
@@ -24,6 +27,7 @@ public class Counting {
 
         c1.start();
         c2.start();
+
         c1.join();
         c2.join();
 
